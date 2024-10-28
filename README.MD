@@ -17,7 +17,6 @@ cp -r -f output/goframe-latest-md-static/* static/
 
 # windows
 # xcopy /s /y A\* B\
-
 ```
 
 ## 本地运行
