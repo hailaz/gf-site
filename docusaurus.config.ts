@@ -29,7 +29,7 @@ const config: Config = {
       {
         // Will be passed to @docusaurus/plugin-content-docs (false to disable)
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: require.resolve('./sidebars.ts'),
           lastVersion: 'current',
           // https://docusaurus.io/docs/versioning
           versions: {
@@ -39,6 +39,9 @@ const config: Config = {
           },
           // 编辑当前页面的配置
           editUrl: 'https://github.com/gogf/gf-site/blob/main/',
+          // 显示更新时间和作者
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         // Will be passed to @docusaurus/plugin-content-blog (false to disable)
         blog: {},
@@ -49,7 +52,7 @@ const config: Config = {
         },
         // Will be passed to @docusaurus/theme-classic.
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       } satisfies Preset.Options,
     ],
@@ -72,7 +75,7 @@ const config: Config = {
         id: 'quick',
         path: 'quick',
         routeBasePath: 'quick',
-        sidebarPath: './sidebars.ts',
+        sidebarPath: require.resolve('./sidebars.ts'),
         // ... other options
       },
     ],
@@ -83,7 +86,7 @@ const config: Config = {
         id: 'faq',
         path: 'faq',
         routeBasePath: 'faq',
-        sidebarPath: './sidebars.ts',
+        sidebarPath: require.resolve('./sidebars.ts'),
         // ... other options
       },
     ],
@@ -94,7 +97,7 @@ const config: Config = {
         id: 'release',
         path: 'release',
         routeBasePath: 'release',
-        sidebarPath: './sidebars.ts',
+        sidebarPath: require.resolve('./sidebars.ts'),
         // ... other options
       },
     ],
@@ -105,7 +108,7 @@ const config: Config = {
         id: 'help',
         path: 'help',
         routeBasePath: 'help',
-        sidebarPath: './sidebars.ts',
+        sidebarPath: require.resolve('./sidebars.ts'),
       },
     ],
     // 支持我们
@@ -115,7 +118,7 @@ const config: Config = {
         id: 'supportus',
         path: 'supportus',
         routeBasePath: 'supportus',
-        sidebarPath: './sidebars.ts',
+        sidebarPath: require.resolve('./sidebars.ts'),
       },
     ],
     // 加入我们
@@ -125,17 +128,16 @@ const config: Config = {
         id: 'joinus',
         path: 'joinus',
         routeBasePath: 'joinus',
-        sidebarPath: './sidebars.ts',
+        sidebarPath: require.resolve('./sidebars.ts'),
       },
     ],
   ],
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'GoFrame',
       logo: {
         alt: 'GoFrame Logo',
-        src: 'img/favicon.ico',
+        src: '/img/favicon.ico',
       },
       items: [
         {
