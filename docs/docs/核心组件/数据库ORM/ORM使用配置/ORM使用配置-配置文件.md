@@ -52,10 +52,11 @@ database:
 | `tidb` | ```tidb:root:12345678@tcp(127.0.0.1:3306)/test?loc=Local&parseTime=true``` | [mysql](https://github.com/go-sql-driver/mysql) |
 | `pgsql` | ```pgsql:root:12345678@tcp(127.0.0.1:5432)/test``` | [pq](https://github.com/lib/pq) |
 | `mssql` | ```mssql:root:12345678@tcp(127.0.0.1:1433)/test?encrypt=disable``` | [go-mssqldb](https://github.com/microsoft/go-mssqldb) |
-| `sqlite` | ```sqlite::@file(/var/data/db.sqlite3)``` | pure go:[go-sqlite](https://github.com/glebarez/go-sqlite) <br /> 32bit-cgo:[go-sqlite3](https://github.com/mattn/go-sqlite3) |
+| `sqlite` | ```sqlite::@file(/var/data/db.sqlite3)``` | pure go: [go-sqlite](https://github.com/glebarez/go-sqlite) <br /> 32bit-cgo: [go-sqlite3](https://github.com/mattn/go-sqlite3) |
 | `oracle` | ```oracle:root:12345678@tcp(127.0.0.1:5432)/test``` | [go-ora](https://github.com/sijms/go-ora) |
 | `clickhouse` | ```clickhouse:root:12345678@tcp(127.0.0.1:9000)/test``` | [clickhouse-go](https://github.com/ClickHouse/clickhouse-go) |
 | `dm` | ```dm:root:12345678@tcp(127.0.0.1:5236)/test``` | [dm](https://gitee.com/chunanyong/dm) |
+| `gaussdb` | ```gaussdb:root:12345678@tcp(127.0.0.1:5432)/test``` (`v2.10.0+`) | [openGauss-connector-go-pq](https://gitee.com/opengauss/openGauss-connector-go-pq) |
 
 :::tip
 更多框架支持的数据库类型请参考： [https://github.com/gogf/gf/tree/master/contrib/drivers](https://github.com/gogf/gf/tree/master/contrib/drivers)
@@ -87,6 +88,7 @@ database:
     maxIdle: 10                 # (可选)连接池最大闲置的连接数(默认10)
     maxOpen: 100                # (可选)连接池最大打开的连接数(默认无限制)
     maxLifetime: "30s"          # (可选)连接对象可重复使用的时间长度(默认30秒)
+    maxIdleConnTime: "30s"      # (可选，v2.10新增)连接池中空闲连接的最大生存时间(默认30秒)。可以通过配置文件或SetConnMaxIdleTime方法设置，避免长时间空闲连接占用资源。
     queryTimeout: "0"           # (可选)查询语句超时时长(默认无限制，同时受ctx超时时间影响)。值为time.Parse支持的格式，如30s, 1m。
     execTimeout: "0"            # (可选)写入语句超时时长(默认无限制，同时受ctx超时时间影响)。值为time.Parse支持的格式，如30s, 1m。
     tranTimeout: "0"            # (可选)事务处理超时时长(默认无限制，同时受ctx超时时间影响)。值为time.Parse支持的格式，如30s, 1m。
