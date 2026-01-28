@@ -207,12 +207,12 @@ const config: Config = {
           to: '/share/group',
           activeBaseRegex: `share|articles|supportus`,
         },
-        ...(process.env.DOCUSAURUS_CURRENT_LOCALE === 'en' ? [] : [{
-          label: '招聘/求职',
-          href: 'https://github.com/gogf/jobs',
-          position: 'left' as const,
-          // className: 'navbar-jobs-link',
-        }]),
+        // ...(process.env.DOCUSAURUS_CURRENT_LOCALE === 'en' ? [] : [{
+        //   label: '招聘/求职',
+        //   href: 'https://github.com/gogf/jobs',
+        //   position: 'left' as const,
+        //   // className: 'navbar-jobs-link',
+        // }]),
 
         // 右边导航栏
         {
